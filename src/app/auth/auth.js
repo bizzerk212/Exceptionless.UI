@@ -18,7 +18,7 @@
     'exceptionless.user',
     'exceptionless.validators'
   ])
-  .config(function ($authProvider, $stateProvider, BASE_URL, FACEBOOK_APPID, GOOGLE_APPID, GITHUB_APPID, LIVE_APPID) {
+  .config(function ($authProvider, $stateProvider, BASE_URL, FACEBOOK_APPID, GOOGLE_APPID, GITHUB_APPID, LIVE_APPID, CUSTOM_APPID) {
     $authProvider.baseUrl = BASE_URL + '/api/v2';
     $authProvider.facebook({
       clientId: FACEBOOK_APPID
@@ -35,6 +35,10 @@
     $authProvider.live({
       clientId: LIVE_APPID,
       scope: ['wl.emails']
+    });
+
+    $authProvider.custom({
+        clientId: CUSTOM_APPID
     });
 
     $stateProvider.state('auth', {

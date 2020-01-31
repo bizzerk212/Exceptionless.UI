@@ -151,6 +151,20 @@
                     oauthType: '2.0',
                     popupOptions: { width: 500, height: 530 },
                     state: function () { return encodeURIComponent(Math.random().toString(36).substr(2)); }
+                },
+                custom: {
+                    name: "",
+                    url: '/auth/custom',
+                    authorizationEndpoint: '',
+                    redirectUri: window.location.origin,
+                    requiredUrlParams: [],
+                    optionalUrlParams: [],
+                    scope: [],
+                    scopePrefix: '',
+                    scopeDelimiter: '',
+                    oauthType: '2.0',
+                    popupOptions: { width: 500, height: 600 },
+                    state: function () { return encodeURIComponent(Math.random().toString(36).substr(2));}
                 }
             };
             this.httpInterceptor = function () { return true; };
