@@ -33,6 +33,27 @@ do
   if [ "$key" == "CustomId" ]; then
     CustomId=$value
   fi
+  if [ "$key" == "CustomName" ]; then
+    CustomName=$value
+  fi
+  if [ "$key" == "CustomAuthEndpoint" ]; then
+    CustomAuthEndpoint=$value
+  fi
+  if [ "$key" == "CustomScope" ]; then
+    CustomScope=$value
+  fi
+  if [ "$key" == "CustomScopePrefix" ]; then
+    CustomScopePrefix=$value
+  fi
+  if [ "$key" == "CustomScopeDelimiter" ]; then
+    CustomScopeDelimiter=$value
+  fi
+  if [ "$key" == "CustomRequiredParams" ]; then
+    CustomRequiredParams=$value
+  fi
+  if [ "$key" == "CustomOptionalParams" ]; then
+    CustomOptionalParams=$value
+  fi
 done
 
 config="(function () {
@@ -49,13 +70,13 @@ config="(function () {
     .constant('LIVE_APPID', '$MicrosoftAppId')
     .constant('SLACK_APPID', '$SlackAppId')
 	.constant('CUSTOM_APPID', '$CustomId')
-    .constant('CUSTOM_NAME', )
-    .constant('CUSTOM_AUTH_ENDPOINT', )
-    .constant('CUSTOM_SCOPE', )
-    .constant('CUSTOM_SCOPE_PREFIX', )
-    .constant('CUSTOM_SCOPE_DELIMITER', )
-    .constant('CUSTOM_REQUIRED_PARAMS', )
-    .constant('CUSTOM_OPTIONAL_PARAMS', )
+    .constant('CUSTOM_NAME', '$CustomName')
+    .constant('CUSTOM_AUTH_ENDPOINT', '$CustomAuthEndpoint')
+    .constant('CUSTOM_SCOPE', '$CustomScope')
+    .constant('CUSTOM_SCOPE_PREFIX', '$CustomScopePrefix')
+    .constant('CUSTOM_SCOPE_DELIMITER', '$CustomScopeDelimiter')
+    .constant('CUSTOM_REQUIRED_PARAMS', '$CustomRequiredParams')
+    .constant('CUSTOM_OPTIONAL_PARAMS', '$CustomOptionalParams')
     .constant('STRIPE_PUBLISHABLE_KEY', '$EX_StripePublishableApiKey')
     .constant('SYSTEM_NOTIFICATION_MESSAGE', '$EX_NotificationMessage')
     .constant('USE_HTML5_MODE', $Html5Mode)

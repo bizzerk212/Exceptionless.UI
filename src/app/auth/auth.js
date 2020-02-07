@@ -18,7 +18,7 @@
     'exceptionless.user',
     'exceptionless.validators'
   ])
-  .config(function ($authProvider, $stateProvider, BASE_URL, FACEBOOK_APPID, GOOGLE_APPID, GITHUB_APPID, LIVE_APPID, CUSTOM_APPID) {
+      .config(function ($authProvider, $stateProvider, BASE_URL, FACEBOOK_APPID, GOOGLE_APPID, GITHUB_APPID, LIVE_APPID, CUSTOM_APPID, CUSTOM_AUTH_ENDPOINT, CUSTOM_SCOPE_PREFIX, CUSTOM_SCOPE_DELIMITER, CUSTOM_REQUIRED_PARAMS, CUSTOM_OPTIONAL_PARAMS, CUSTOM_SCOPE) {
     $authProvider.baseUrl = BASE_URL + '/api/v2';
     $authProvider.facebook({
       clientId: FACEBOOK_APPID
@@ -37,8 +37,18 @@
       scope: ['wl.emails']
     });
 
+    var requiredUrlParams = CUSTOM_REQUIRED_PARAMS.split(',');
+    var optionalUrlParams = CUSTOM_OPTIONAL_PARAMS.split(',');
+    var scope = CUSTOM_SCOPE.split(',');
+
     $authProvider.custom({
-        clientId: CUSTOM_APPID
+        clientId: CUSTOM_APPID,
+        authorizationEndpoint: CUSTOM_AUTH_ENDPOINT,
+        requiredUrlParams: requiredUrlParams,
+        optionalUrlParams: optionalUrlParams,
+        scope: scope,
+        scopePrefix: CUSTOM_SCOPE_PREFIX,
+        scopeDelimiter: CUSTOM_SCOPE_DELIMITER
     });
 
     $stateProvider.state('auth', {

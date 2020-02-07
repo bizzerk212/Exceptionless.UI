@@ -32,15 +32,16 @@ RUN npx grunt build
 
 # testrunner
 
-FROM build AS testrunner
-WORKDIR /app
+#FROM build AS testrunner
+#WORKDIR /app
 
-ENTRYPOINT [ "npx", "grunt", "test" ]
+#ENTRYPOINT [ "npx", "grunt", "test" ]
 
 # ui
 
 FROM nginx:stable as ui
 WORKDIR /app
+ADD . /app
 COPY --from=build /app/dist ./
 COPY bootstrap /usr/local/bin/bootstrap
 COPY nginx-site.conf /etc/nginx/conf.d/default.conf

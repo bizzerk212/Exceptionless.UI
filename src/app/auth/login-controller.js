@@ -41,6 +41,8 @@
             return !!GOOGLE_APPID;
           case 'live':
             return !!LIVE_APPID;
+          case 'custom':
+              return false;
           default:
             return false;
         }
