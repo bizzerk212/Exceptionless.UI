@@ -531,6 +531,7 @@
   "Log in using your Google account":"Log in using your Google account",
   "Log in using your Facebook account":"Log in using your Facebook account",
   "Log in using your GitHub account":"Log in using your GitHub account",
+  "Log in using your Custom oAuth 2 server":"Log in using your Custom oAuth 2 server",
   "An error occurred while adding external login.":"An error occurred while adding external login.",
   "An error occurred while loading the notification settings.":"An error occurred while loading the notification settings.",
   "An error occurred while loading the projects.":"An error occurred while loading the projects.",

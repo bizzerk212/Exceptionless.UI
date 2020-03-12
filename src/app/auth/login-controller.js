@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app.auth')
-    .controller('auth.Login', function ($ExceptionlessClient, $state, $stateParams, translateService, authService, FACEBOOK_APPID, GOOGLE_APPID, GITHUB_APPID, LIVE_APPID, ENABLE_ACCOUNT_CREATION, notificationService, projectService, stateService) {
+    .controller('auth.Login', function ($ExceptionlessClient, $state, $stateParams, translateService, authService, FACEBOOK_APPID, GOOGLE_APPID, GITHUB_APPID, LIVE_APPID, CUSTOM_APPID, ENABLE_ACCOUNT_CREATION, notificationService, projectService, stateService) {
       var vm = this;
 
       function getMessage(response) {
@@ -29,7 +29,7 @@
 
       function isExternalLoginEnabled(provider) {
         if (!provider) {
-          return !!FACEBOOK_APPID || !!GITHUB_APPID || !!GOOGLE_APPID || !!LIVE_APPID;
+          return !!FACEBOOK_APPID || !!GITHUB_APPID || !!GOOGLE_APPID || !!LIVE_APPID || !!CUSTOM_APPID;
         }
 
         switch (provider) {
@@ -41,8 +41,8 @@
             return !!GOOGLE_APPID;
           case 'live':
             return !!LIVE_APPID;
-          case 'custom':
-              return false;
+          case 'oauth2':
+              return !!CUSTOM_APPID;
           default:
             return false;
         }

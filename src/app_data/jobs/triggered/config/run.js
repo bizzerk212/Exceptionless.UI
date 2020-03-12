@@ -13,6 +13,14 @@ function updateAppConfig() {
   var googleAppId = process.env.Exceptionless_GoogleAppId ? process.env.Exceptionless_GoogleAppId : '';
   var intercomId = process.env.Exceptionless_IntercomAppId ? process.env.Exceptionless_IntercomAppId : '';
   var liveAppId = process.env.Exceptionless_MicrosoftAppId ? process.env.Exceptionless_MicrosoftAppId : '';
+  var customAppId = process.env.Exceptionless_CustomAppId ? process.env.Exceptionless_CustomAppId : '';
+  var customName = process.env.Exceptionless_CustomName ? process.env.Exceptionless_CustomName : '';
+  var customAuthEndpoint = process.env.Exceptionless_CustomAuthEndpoint ? process.env.Exceptionless_CustomAuthEndpoint : '';
+  var customScope = process.env.Exceptionless_CustomScope ? process.env.Exceptionless_CustomScope : '';
+  var customScopePrefix = process.env.Exceptionless_CustomScopePrefix ? process.env.Exceptionless_CustomScopePrefix : '';
+  var customScopeDelimiter = process.env.Exceptionless_CustomScopeDelimiter ? process.env.Exceptionless_CustomScopeDelimiter : '';
+  var customRequiredParams = process.env.Exceptionless_CustomRequiredParams ? process.env.Exceptionless_CustomRequiredParams : '';
+  var customOptionalParams = process.env.Exceptionless_CustomOptionalParams ? process.env.Exceptionless_CustomOptionalParams : '';
   var slackAppId = process.env.Exceptionless_SlackAppId ? process.env.Exceptionless_SlackAppId : '';
   var stripePubKey = process.env.Exceptionless_StripePublishableApiKey ? process.env.Exceptionless_StripePublishableApiKey : '';
   var notificationMessage = process.env.Exceptionless_Message ? process.env.Exceptionless_Message : '';
@@ -33,6 +41,14 @@ function updateAppConfig() {
     '    .constant("GOOGLE_APPID", "' + googleAppId + '")',
     '    .constant("INTERCOM_APPID", "' + intercomId + '")',
     '    .constant("LIVE_APPID", "' + liveAppId + '")',
+    '    .constant("CUSTOM_APPID", "' + customAppId + '")',
+    '    .constant("CUSTOM_NAME", "' + customName +'")',
+    '    .constant("CUSTOM_AUTH_ENDPOINT", "' + customAuthEndpoint + '")',
+    '    .constant("CUSTOM_SCOPE", "' + customScope + '")',
+    '    .constant("CUSTOM_SCOPE_PREFIX", "' + customScopePrefix + '")',
+    '    .constant("CUSTOM_SCOPE_DELIMITER", "' + customScopeDelimiter + '")',
+    '    .constant("CUSTOM_REQUIRED_PARAMS", "' + customRequiredParams + '")',
+    '    .constant("CUSTOM_OPTIONAL_PARAMS", "' + customOptionalParams + '")',
     '    .constant("SLACK_APPID", "' + slackAppId + '")',
     '    .constant("STRIPE_PUBLISHABLE_KEY", "' + stripePubKey + '")',
     '    .constant("SYSTEM_NOTIFICATION_MESSAGE", "' + notificationMessage + '")',

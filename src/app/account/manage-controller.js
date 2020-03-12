@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app.account')
-    .controller('account.Manage', function ($stateParams, $timeout, authService, billingService, dialogService, FACEBOOK_APPID, GOOGLE_APPID, GITHUB_APPID, LIVE_APPID, notificationService, projectService, userService, translateService) {
+    .controller('account.Manage', function ($stateParams, $timeout, authService, billingService, dialogService, FACEBOOK_APPID, GOOGLE_APPID, GITHUB_APPID, LIVE_APPID, CUSTOM_APPID, notificationService, projectService, userService, translateService) {
       var vm = this;
       function activateTab(tabName) {
         switch (tabName) {
@@ -147,7 +147,7 @@
 
       function isExternalLoginEnabled(provider) {
         if (!provider) {
-          return !!FACEBOOK_APPID || !!GITHUB_APPID || !!GOOGLE_APPID || !!LIVE_APPID;
+          return !!FACEBOOK_APPID || !!GITHUB_APPID || !!GOOGLE_APPID || !!LIVE_APPID || !!CUSTOM_APPID;
         }
 
         switch (provider) {
@@ -159,6 +159,8 @@
             return !!GOOGLE_APPID;
           case 'live':
             return !!LIVE_APPID;
+          case 'custom':
+            return !!CUSTOM_APPID;
           default:
             return false;
         }

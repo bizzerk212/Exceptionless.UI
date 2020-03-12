@@ -41,7 +41,13 @@
     var optionalUrlParams = CUSTOM_OPTIONAL_PARAMS.split(',');
     var scope = CUSTOM_SCOPE.split(',');
 
-    $authProvider.custom({
+    $authProvider.oauth2({
+        name: "oauth2",
+        url: '/auth/custom',
+        redirectUri: window.location.origin,
+        oauthType: '2.0',
+        popupOptions: { width: 500, height: 600 },
+        state: function () { return encodeURIComponent(Math.random().toString(36).substr(2));},
         clientId: CUSTOM_APPID,
         authorizationEndpoint: CUSTOM_AUTH_ENDPOINT,
         requiredUrlParams: requiredUrlParams,
